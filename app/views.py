@@ -24,11 +24,9 @@ def home_view(request):
 def time_view(request):
     # обратите внимание – здесь HTML шаблона нет, 
     # возвращается просто текст
-    current_time = datetime.today().strftime("%H:%M:%S")
-    msg = f'Текущее время: {current_time}'
-    return HttpResponse(msg)
+    current_time = datetime.now().time()
+    return HttpResponse(f'Текущее время: {current_time}')
 
 
 def workdir_view(request):
-    msg = '<br>'.join(os.listdir())
-    return HttpResponse(msg)
+    return HttpResponse('<br>'.join(os.listdir()))
